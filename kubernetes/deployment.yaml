@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: democicd
+  name: democicd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: democicd
+  template:
+    metadata:
+      labels:
+        app: democicd
+    spec:
+      containers:
+        - image: iamsrt23/democicd
+          name: democicd
+          ports:
+            - containerPort: 8080
